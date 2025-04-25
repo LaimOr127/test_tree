@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+{% load menu_tags %}
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Древовидное меню{% endblock %}</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            padding: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .menu-container {
+            margin-bottom: 30px;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        .menu-container h2 {
+            margin-top: 0;
+            color: #333;
+        }
+        ul {
+            list-style-type: none;
+            padding-left: 20px;
+        }
+        li {
+            margin: 5px 0;
+        }
+        a {
+            text-decoration: none;
+            color: #0066cc;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        .active > a {
+            font-weight: bold;
+            color: #ff6600;
+        }
+        .content {
+            margin-top: 30px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Древовидное меню</h1>
+    </header>
+    
+    <div class="menu-container">
+        <h2>Главное меню</h2>
+        {% draw_menu 'main_menu' %}
+    </div>
+    
+    <div class="menu-container">
+        <h2>Второе меню</h2>
+        {% draw_menu 'secondary_menu' %}
+    </div>
+    
+    <div class="content">
+        {% block content %}
+            <h2>Добро пожаловать!</h2>
+            <p>Это демонстрация древовидного меню в Django.</p>
+        {% endblock %}
+    </div>
+</body>
+</html> 
